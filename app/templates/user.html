@@ -17,4 +17,8 @@
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
+
+    {% if user == current_user %}
+    <p><a href="{{ url_for('edit_profiel') }}">Edit your Profile</a></p>
+    {% endif %}
 {% endblock %}
