@@ -66,6 +66,11 @@ instance/
 .webassets-cache
 .flaskenv
 
+# Log files
+logs/
+*.log
+*.log.*
+
 # Database files (SQLite)
 *.db
 app.db
