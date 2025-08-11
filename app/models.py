@@ -12,7 +12,7 @@ from hashlib import md5
 followers = sa.Table(
     'followers',
     db.metadata,
-    sa.Column('follower_id', sa.Integer, sa.ForeignKey('user.id'), primary_key=True),
+    sa.Column('followers_id', sa.Integer, sa.ForeignKey('user.id'), primary_key=True),
     sa.Column('followed_id', sa.Integer, sa.ForeignKey('user.id'), primary_key=True)
 )
 class User(UserMixin, db.Model):
