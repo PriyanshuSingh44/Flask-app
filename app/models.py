@@ -24,8 +24,18 @@ class User(UserMixin, db.Model):
     about_me: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
     last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(default=lambda: datetime.now(timezone.utc))
 
-    following: so.WriteOnlyMapped['User'] = so.relationship(secondary=followers, primaryjoin=(followers.c.followers_id == id),secondaryjoin=(followers.c.followers_id == id), back_populates='followers')
-    followers: so.WriteOnlyMapped['User'] = so.relationship(secondary=followers, primaryjoin=(followers.c.followed_id == id),secondaryjoin=(followers.c.followed_id == id),back_populates='following')
+    following: so.WriteOnlyMapped['User'] = so.relationship(
+        secondary=followers,
+        primaryjoin=(followers.c.followers_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        back_populates='followers'
+    )
+    followers: so.WriteOnlyMapped['User'] = so.relationship(
+        secondary=followers,
+        primaryjoin=(followers.c.followed_id == id),
+        secondaryjoin=(followers.c.followers_id == id),
+        back_populates='following'
+    )
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -58,6 +68,21 @@ class User(UserMixin, db.Model):
     def following_count(self):
         query = sa.select(sa.func.count()).select_from(self.following.select().subquery())
         return db.session.scalar(query)
+    
+    def following_posts(self):
+        return (
+            sa.select(Post)
+            .where(
+                sa.or_(
+                    Post.user_id == self.id,  # own posts
+                    Post.user_id.in_(  # followed users' posts
+                        sa.select(followers.c.followed_id)
+                        .where(followers.c.followers_id == self.id)
+                    )
+                )
+            )
+            .order_by(Post.timestamp.desc())
+        )
 
     def __repr__(self):
         return '<user {}>'.format(self.username)
