@@ -1,2 +1,114 @@
-# Flask-app
-learning flask form ( The Flask Mega - Tutorial)
+# Flask Mega-Tutorial: Microblog App
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)  
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)  
+![Flask-WTF](https://img.shields.io/badge/Flask--WTF-4B8BBE?style=for-the-badge&logo=python&logoColor=white)  
+![Flask-Login](https://img.shields.io/badge/Flask--Login-009688?style=for-the-badge&logo=python&logoColor=white)  
+![Flask-Mail](https://img.shields.io/badge/Flask--Mail-FF6F00?style=for-the-badge&logo=gmail&logoColor=white)  
+![Flask-Migrate](https://img.shields.io/badge/Flask--Migrate-006600?style=for-the-badge&logo=python&logoColor=white)  
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlite&logoColor=white)  
+![Bootstrap](https://img.shields.io/badge/Bootstrap%205-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)  
+
+This repository contains my progress while following **Miguel Grinberg's Flask Mega-Tutorial**. I am building a full-featured microblogging application step-by-step, implementing features like user authentication, a database, and a responsive UI.
+
+---
+
+### 📚 Chapters Covered So Far
+
+I have successfully completed up to **Chapter 11: Facelift**, which introduces a Bootstrap-based redesign of the application.
+
+* **Chapter 1:** Hello, World!
+* **Chapter 2:** Templates
+* **Chapter 3:** Web Forms
+* **Chapter 4:** Database
+* **Chapter 5:** User Logins
+* **Chapter 6:** Profile Page and Avatars
+* **Chapter 7:** Error Handling
+* **Chapter 8:** Followers
+* **Chapter 9:** Pagination
+* **Chapter 10:** Email Support
+* **Chapter 11:** Facelift (Bootstrap 5 UI)
+
+---
+
+### ⚙️ Features Implemented
+
+The application currently includes the following functionalities:
+
+* **User Management:** Registration, authentication, and user sessions.
+* **User Profiles:** Profile pages with avatars (via Gravatar).
+* **Posts & Interactions:** Posting and displaying user posts with a followers/following system.
+* **Post Pagination:** Pagination for browsing posts.
+* **Error Handling:** Custom error pages for 404 and 500 errors.
+* **Email Support:** Sending emails for password reset.
+* **Frontend:** A responsive and modern UI using Bootstrap 5.
+
+---
+
+### 🚀 Tech Stack
+
+* **Flask:** A lightweight Python web framework.
+* **Flask-WTF:** For handling web forms.
+* **Flask-Login:** For managing user sessions and authentication.
+* **Flask-Mail:** For email support.
+* **Flask-Migrate** & **SQLAlchemy:** For database migrations and object-relational mapping (ORM).
+* **Bootstrap 5:** For frontend styling and UI components.
+
+---
+
+### ▶️ How to Run Locally
+
+Follow these steps to get the application up and running on your local machine.
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/](https://github.com/)<your-username>/<your-repo-name>.git
+    cd <your-repo-name>
+    ```
+
+2.  **Create and activate a virtual environment:**
+
+    ```bash
+    python -m venv venv
+    # On Linux/macOS
+    source venv/bin/activate
+    # On Windows
+    venv\Scripts\activate
+    ```
+
+3.  **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Set environment variables:**
+
+    ```bash
+    # On Linux/macOS
+    export FLASK_APP=microblog.py
+    export FLASK_ENV=development
+
+    # On Windows
+    set FLASK_APP=microblog.py
+    set FLASK_ENV=development
+    ```
+
+5.  **Initialize the database:**
+
+    ```bash
+    flask db upgrade
+    ```
+
+6.  **Run the application:**
+
+    ```bash
+    flask run
+    ```
+
+---
+
+### 📌 Notes
+
+This is a work-in-progress repository. As I continue the tutorial, I will add more features, including APIs, background jobs, testing, and deployment.
