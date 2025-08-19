@@ -9,9 +9,10 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 
 app = Flask(__name__)
-mail = Mail(app)
-
 app.config.from_object(Config)
+
+# Initialize Flask extensions
+mail = Mail(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
