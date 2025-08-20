@@ -7,7 +7,7 @@
 ![Flask-Migrate](https://img.shields.io/badge/Flask--Migrate-DB%20Migrations-006600?logo=python&logoColor=white)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-D71F00?logo=sqlite&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap%205-Frontend-7952B3?logo=bootstrap&logoColor=white) 
-![Flask-Babel](https://img.shields.io/badge/Flask-Babel-I18n%20%26%20L10n-005F73?logo=python&logoColor=white)
+![Flask-Babel](https://img.shields.io/badge/Flask--Babel-i18n%2Fl10n-1d3557?logo=googletranslate&logoColor=white)
 
 This repository contains my progress while following **Miguel Grinberg's Flask Mega-Tutorial**. I am building a full-featured microblogging application step-by-step, implementing features like user authentication, a database, and a responsive UI.
 
