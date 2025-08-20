@@ -1,13 +1,12 @@
 # Flask Mega-Tutorial: Microblog App
-
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)  
-![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?logo=flask&logoColor=white)  
-![Flask-WTF](https://img.shields.io/badge/Flask--WTF-Forms-4B8BBE?logo=wtforms&logoColor=white)  
-![Flask-Login](https://img.shields.io/badge/Flask--Login-Authentication-009688?logo=python&logoColor=white)  
-![Flask-Mail](https://img.shields.io/badge/Flask--Mail-Email-FF6F00?logo=gmail&logoColor=white)  
-![Flask-Migrate](https://img.shields.io/badge/Flask--Migrate-DB%20Migrations-006600?logo=python&logoColor=white)  
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-D71F00?logo=sqlite&logoColor=white)  
-![Bootstrap](https://img.shields.io/badge/Bootstrap%205-Frontend-7952B3?logo=bootstrap&logoColor=white)    
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?logo=flask&logoColor=white)
+![Flask-WTF](https://img.shields.io/badge/Flask--WTF-Forms-4B8BBE?logo=wtforms&logoColor=white)
+![Flask-Login](https://img.shields.io/badge/Flask--Login-Auth-009688?logo=python&logoColor=white)
+![Flask-Mail](https://img.shields.io/badge/Flask--Mail-Email-FF6F00?logo=gmail&logoColor=white)
+![Flask-Migrate](https://img.shields.io/badge/Flask--Migrate-DB%20Migrations-006600?logo=python&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-D71F00?logo=sqlite&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap%205-Frontend-7952B3?logo=bootstrap&logoColor=white) 
 
 This repository contains my progress while following **Miguel Grinberg's Flask Mega-Tutorial**. I am building a full-featured microblogging application step-by-step, implementing features like user authentication, a database, and a responsive UI.
 
