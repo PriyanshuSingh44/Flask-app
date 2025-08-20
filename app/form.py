@@ -1,69 +1,73 @@
 from flask_wtf import FlaskForm
+from flask_babel import _, lazy_gettext as _l
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired,ValidationError, Email, EqualTo, Length
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 import sqlalchemy as sa
 from app import db
 from app.models import User
 
-# Login form to login users
+
 class LoginForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired()])
-    password = PasswordField('password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign in')
+    username = StringField(_l('Username'), validators=[DataRequired()]) # type: ignore
+    password = PasswordField(_l('Password'), validators=[DataRequired()]) # type: ignore
+    remember_me = BooleanField(_l('Remember Me'))  # type: ignore
+    submit = SubmitField(_l('Sign In'))   # type: ignore
 
-# Registration Form for new users
+
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+    username = StringField(_l('Username'), validators=[DataRequired()]) # type: ignore
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])  # type: ignore
+    password = PasswordField(_l('Password'), validators=[DataRequired()])  # type: ignore
+    password2 = PasswordField(
+        _l('Repeat Password'), validators=[DataRequired(),EqualTo('password')])  # type: ignore
+    submit = SubmitField(_l('Register'))  # type: ignore
 
-    # validate if username already exits/taken
     def validate_username(self, username):
-        user = db.session.scalar(sa.select(User).where(User.username == username.data))
+        user = db.session.scalar(sa.select(User).where(
+            User.username == username.data))
         if user is not None:
-            raise ValidationError('Please use a different username.')
-        
-    # validate if email already registered
-    def validate_email(self, email):
-        user = db.session.scalar(sa.select(User).where(User.email == email.data))
-        if user is not None:
-            raise ValidationError('Please use a different email addresses.')
+            raise ValidationError(_l('Please use a different username.'))  # type: ignore
 
-# Profile editor
+    def validate_email(self, email):
+        user = db.session.scalar(sa.select(User).where(
+            User.email == email.data))
+        if user is not None:
+            raise ValidationError(_l('Please use a different email address.'))  # type: ignore
+
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])  # type: ignore
+    submit = SubmitField(_l('Request Password Reset'))  # type: ignore
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField(_l('Password'), validators=[DataRequired()])  # type: ignore
+    password2 = PasswordField(
+        _l('Repeat Password'), validators=[DataRequired(),EqualTo('password')])  # type: ignore
+    submit = SubmitField(_l('Request Password Reset'))  # type: ignore
+
+
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About Me', validators=[Length(min=0, max=140)])
-    submit = SubmitField('Submit')
-    
-    # Checking if the username already exists
+    username = StringField(_l('Username'), validators=[DataRequired()])  # type: ignore
+    about_me = TextAreaField(_l('About me'),validators=[Length(min=0, max=140)])  # type: ignore
+    submit = SubmitField(_l('Submit'))  # type: ignore
+
     def __init__(self, original_username, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.original_username = original_username
-    
+
     def validate_username(self, username):
         if username.data != self.original_username:
-            user = db.session.scalar(sa.select(User).where(User.username == username.data))
+            user = db.session.scalar(sa.select(User).where(
+                User.username == username.data))
             if user is not None:
-                raise ValidationError('Please use a different username.')
+                raise ValidationError(_l('Please use a different username.'))  # type: ignore
 
-# Empty form for following and unfollowing             
+
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 
-# Blog submission form
+
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
-    submit = SubmitField('Submit')
-
-# Reset password request form
-class ResetPasswordRequestForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Request Password Reset')
-
-class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Reqeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')
+    post = TextAreaField(_l('Say something'), validators=[ DataRequired(), Length(min=1, max=140)])  # type: ignore
+    submit = SubmitField(_l('Submit'))  # type: ignore

@@ -12,3 +12,4 @@ class Config:
     MAIL_PASSWORD = None
     ADMINS = ['admin@example.com']
     POSTS_PER_PAGE = 25
+    LANGUAGES = ['en', 'es','de']
