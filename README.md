@@ -7,6 +7,7 @@
 ![Flask-Migrate](https://img.shields.io/badge/Flask--Migrate-DB%20Migrations-006600?logo=python&logoColor=white)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-D71F00?logo=sqlite&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap%205-Frontend-7952B3?logo=bootstrap&logoColor=white) 
+![Flask-Babel](https://img.shields.io/badge/Flask-Babel-I18n%20%26%20L10n-005F73?logo=python&logoColor=white)
 
 This repository contains my progress while following **Miguel Grinberg's Flask Mega-Tutorial**. I am building a full-featured microblogging application step-by-step, implementing features like user authentication, a database, and a responsive UI.
 
@@ -27,6 +28,8 @@ I have successfully completed up to **Chapter 11: Facelift**, which introduces a
 * **Chapter 9:** Pagination
 * **Chapter 10:** Email Support
 * **Chapter 11:** Facelift (Bootstrap 5 UI)
+* **Chapter 12:** Dates and Times (moment.js & Flask-Moment)  
+* **Chapter 13:** I18n and L10n (Flask-Babel, CLI translation commands)
 
 ---
 
@@ -41,6 +44,8 @@ The application currently includes the following functionalities:
 * **Error Handling:** Custom error pages for 404 and 500 errors.
 * **Email Support:** Sending emails for password reset.
 * **Frontend:** A responsive and modern UI using Bootstrap 5.
+* **Dates and Times:** Time zone–aware timestamps with Flask-Moment (Chapter 12). 
+* **Internationalization:** Multi-language support using Flask-Babel, translation markers (`_()`/`_l()`), language catalog management, and translation CLI commands (Chapter 13).
 
 ---
 
@@ -51,6 +56,8 @@ The application currently includes the following functionalities:
 * **Flask-Login:** For managing user sessions and authentication.
 * **Flask-Mail:** For email support.
 * **Flask-Migrate** & **SQLAlchemy:** For database migrations and object-relational mapping (ORM).
+* **Flask-Moment:** Client-side timestamps with moment.js (Dates & Times).
+* **Flask-Babel:** Internationalization & localization (I18n & L10n).
 * **Bootstrap 5:** For frontend styling and UI components.
 
 ---
